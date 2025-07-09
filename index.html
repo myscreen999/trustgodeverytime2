@@ -2,33 +2,40 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ON AFRICA TP - Construire l'Afrique de demain</title>
     <meta name="description" content="ON AFRICA TP - Entreprise spécialisée dans le BTP, la logistique et les travaux publics en Afrique depuis 2009. Construire l'Afrique de demain, aujourd'hui." />
+    <meta name="keywords" content="BTP, construction, Afrique, travaux publics, logistique, infrastructure" />
+    <meta property="og:title" content="ON AFRICA TP - Construire l'Afrique de demain" />
+    <meta property="og:description" content="Entreprise spécialisée dans le BTP, la logistique et les travaux publics en Afrique depuis 2009." />
+    <meta property="og:image" content="https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png" />
+    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-        
-        // Handle password setup redirect
-        window.netlifyIdentity.on("confirm", () => {
-          document.location.href = "/password-setup";
-        });
-      }
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+          
+          // Handle password setup redirect
+          window.netlifyIdentity.on("confirm", () => {
+            document.location.href = "/password-setup";
+          });
+        }
+      });
     </script>
   </body>
 </html>

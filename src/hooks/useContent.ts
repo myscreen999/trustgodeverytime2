@@ -6,13 +6,14 @@ export const useContent = <T>(dataPath: string): T | null => {
   useEffect(() => {
     const loadContent = async () => {
       try {
-        const response = await fetch(dataPath);
+        // Remove leading slash and add proper path resolution
+        const cleanPath = dataPath.startsWith('/') ? dataPath.slice(1) : dataPath;
+        const response = await fetch(`/${cleanPath}`);
         if (response.ok) {
           const data = await response.json();
           setContent(data);
         } else {
-          // Fallback to default content if file doesn't exist
-          console.warn(`Could not load ${dataPath}, using default content`);
+          console.warn(`Could not load ${cleanPath}, using default content`);
         }
       } catch (error) {
         console.warn(`Error loading ${dataPath}:`, error);

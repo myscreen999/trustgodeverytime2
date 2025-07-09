@@ -9,23 +9,26 @@ const PasswordSetup: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [netlifyIdentityLoaded, setNetlifyIdentityLoaded] = useState(false);
 
   useEffect(() => {
-    // Load Netlify Identity widget
-    const script = document.createElement('script');
-    script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-    document.head.appendChild(script);
-
-    script.onload = () => {
-      // Initialize Netlify Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.init();
-      }
-    };
-
-    return () => {
-      document.head.removeChild(script);
-    };
+    // Check if Netlify Identity is already loaded
+    if (window.netlifyIdentity) {
+      setNetlifyIdentityLoaded(true);
+      window.netlifyIdentity.init();
+    } else {
+      // Wait for it to load
+      const checkIdentity = setInterval(() => {
+        if (window.netlifyIdentity) {
+          setNetlifyIdentityLoaded(true);
+          window.netlifyIdentity.init();
+          clearInterval(checkIdentity);
+        }
+      }, 100);
+      
+      // Cleanup after 10 seconds
+      setTimeout(() => clearInterval(checkIdentity), 10000);
+    }
   }, []);
 
   const validatePassword = (pwd: string) => {
@@ -61,20 +64,22 @@ const PasswordSetup: React.FC = () => {
       const token = urlParams.get('recovery_token') || urlParams.get('confirmation_token');
 
       if (!token) {
-        throw new Error('Token de récupération manquant');
+        throw new Error('Token de récupération manquant. Veuillez utiliser le lien reçu par email.');
+      }
+
+      if (!netlifyIdentityLoaded || !window.netlifyIdentity) {
+        throw new Error('Service d\'authentification non disponible. Veuillez réessayer.');
       }
 
       // Use Netlify Identity to complete the password setup
-      if (window.netlifyIdentity) {
-        const user = await window.netlifyIdentity.confirm(token, true);
-        
-        if (user) {
-          setSuccess(true);
-          setTimeout(() => {
-            // Redirect to admin panel
-            window.location.href = '/admin';
-          }, 2000);
-        }
+      const user = await window.netlifyIdentity.confirm(token, true);
+      
+      if (user) {
+        setSuccess(true);
+        setTimeout(() => {
+          // Redirect to admin panel
+          window.location.href = '/admin';
+        }, 2000);
       }
     } catch (err: any) {
       setError(err.message || 'Une erreur est survenue lors de la configuration du mot de passe');
