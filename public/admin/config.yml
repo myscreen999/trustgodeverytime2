@@ -42,7 +42,8 @@ collections:
           - label: "Statistiques"
             name: "stats"
             widget: "list"
-            allow_add: false
+            min: 4
+            max: 4
             collapsed: false
             fields:
               - {label: "Nombre", name: "number", widget: "number", required: true}
@@ -85,7 +86,8 @@ collections:
           - label: "Liste des services"
             name: "servicesList"
             widget: "list"
-            allow_add: false
+            min: 7
+            max: 7
             collapsed: false
             fields:
               - {label: "Nom du service", name: "title", widget: "string", required: true}
@@ -94,7 +96,8 @@ collections:
           - label: "Mission, Vision, Valeurs"
             name: "values"
             widget: "list"
-            allow_add: false
+            min: 3
+            max: 3
             collapsed: false
             fields:
               - {label: "Titre", name: "title", widget: "string", required: true}
@@ -113,7 +116,6 @@ collections:
           - label: "Projets"
             name: "projectsList"
             widget: "list"
-            allow_add: false
             collapsed: false
             fields:
               - {label: "Titre du projet", name: "title", widget: "string", required: true}
@@ -131,11 +133,10 @@ collections:
           - label: "Partenaires"
             name: "partnersList"
             widget: "list"
-            allow_add: false
             collapsed: false
             fields:
-              - {label: "Nom", name: "name", widget: "string", required: true}
-              - {label: "Logo", name: "image", widget: "image", required: true}
+              - {label: "Nom du partenaire", name: "name", widget: "string", required: true}
+              - {label: "Logo du partenaire", name: "image", widget: "image", required: true}
 
   - name: "contact"
     label: "Section Contact"
