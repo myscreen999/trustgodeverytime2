@@ -1,9 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Building, Truck, Wrench, Droplets, Package, Car, Plus } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+
+interface ServicesData {
+  title: string;
+  description: string;
+  servicesList: Array<{
+    title: string;
+    image: string;
+    icon: string;
+  }>;
+  values: Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+}
 
 const Services: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const servicesData = useContent<ServicesData>('/src/data/services.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,7 +39,19 @@ const Services: React.FC = () => {
     return () => observer.disconnect();
   }, [sectionVisible]);
 
-  const services = [
+  // Icon mapping
+  const iconMap: { [key: string]: any } = {
+    Building,
+    Truck,
+    Wrench,
+    Droplets,
+    Package,
+    Car,
+    Plus
+  };
+
+  // Fallback data
+  const defaultServices = [
     {
       icon: Building,
       title: 'Construction de bâtiments',
@@ -60,7 +89,7 @@ const Services: React.FC = () => {
     }
   ];
 
-  const values = [
+  const defaultValues = [
     {
       title: 'Mission',
       description: 'Fournir des solutions fiables et innovantes qui répondent aux besoins croissants des infrastructures africaines.',
@@ -78,6 +107,11 @@ const Services: React.FC = () => {
     }
   ];
 
+  const title = servicesData?.title || 'Nos Services';
+  const description = servicesData?.description || 'Nos services couvrent l\'ensemble du cycle de vie...';
+  const services = servicesData?.servicesList || defaultServices;
+  const values = servicesData?.values || defaultValues;
+
   return (
     <section 
       id="services" 
@@ -89,10 +123,10 @@ const Services: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-slideUp">
-            Nos Services
+            {title}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn">
-            Nos services couvrent l'ensemble du cycle de vie des projets de construction et d'infrastructure. Grâce à une équipe expérimentée et des outils de pointe, nous offrons des solutions adaptées à chaque contexte local, en respectant les délais, les budgets et les normes les plus exigeantes.
+            {description}
           </p>
         </div>
 
@@ -113,7 +147,7 @@ const Services: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex items-center gap-3 text-white">
-                    <service.icon className="w-6 h-6" />
+                    {React.createElement(iconMap[service.icon] || Building, { className: "w-6 h-6" })}
                     <h3 className="font-semibold text-lg">{service.title}</h3>
                   </div>
                 </div>

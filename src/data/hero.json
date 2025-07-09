@@ -1,0 +1,29 @@
+{
+  "backgroundImage": "https://i.postimg.cc/wMfgmG9t/Whats-App-Image-2025-06-28-at-23-35-43.jpg",
+  "title": "Construire l'Afrique de demain,",
+  "subtitle": "aujourd'hui.",
+  "buttonText": "Découvrir notre mission",
+  "description": "Depuis sa création, ON AFRICA TP s'engage à transformer l'infrastructure africaine grâce à une combinaison unique de savoir-faire technique, d'innovation constante et de vision à long terme. Notre présence dans plusieurs régions du continent témoigne de notre capacité à mener à bien des projets d'envergure avec rigueur et professionnalisme.",
+  "stats": [
+    {
+      "number": 15,
+      "suffix": "+",
+      "label": "ans d'expérience"
+    },
+    {
+      "number": 120,
+      "suffix": "+",
+      "label": "projets réalisés"
+    },
+    {
+      "number": 40,
+      "suffix": "+",
+      "label": "partenaires"
+    },
+    {
+      "number": 200,
+      "suffix": "+",
+      "label": "employés actifs"
+    }
+  ]
+}

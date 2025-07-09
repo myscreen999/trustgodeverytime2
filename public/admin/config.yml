@@ -1,0 +1,143 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - file: "src/data/site.json"
+        label: "Informations générales"
+        name: "site"
+        fields:
+          - {label: "Nom du site", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Logo", name: "logo", widget: "image"}
+
+  - name: "hero"
+    label: "Section Accueil"
+    files:
+      - file: "src/data/hero.json"
+        label: "Contenu Accueil"
+        name: "hero"
+        fields:
+          - {label: "Image de fond", name: "backgroundImage", widget: "image"}
+          - {label: "Titre principal", name: "title", widget: "string"}
+          - {label: "Sous-titre coloré", name: "subtitle", widget: "string"}
+          - {label: "Texte du bouton", name: "buttonText", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Statistiques"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Nombre", name: "number", widget: "number"}
+              - {label: "Suffixe", name: "suffix", widget: "string"}
+              - {label: "Libellé", name: "label", widget: "string"}
+
+  - name: "presentation"
+    label: "Section Présentation"
+    files:
+      - file: "src/data/presentation.json"
+        label: "Contenu Présentation"
+        name: "presentation"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Sous-titre", name: "subtitle", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Image", name: "image", widget: "image"}
+
+  - name: "director"
+    label: "Section Directeur"
+    files:
+      - file: "src/data/director.json"
+        label: "Message du Directeur"
+        name: "director"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Photo du directeur", name: "image", widget: "image"}
+          - {label: "Citation", name: "quote", widget: "text"}
+          - {label: "Message complet", name: "message", widget: "text"}
+
+  - name: "services"
+    label: "Section Services"
+    files:
+      - file: "src/data/services.json"
+        label: "Nos Services"
+        name: "services"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Liste des services"
+            name: "servicesList"
+            widget: "list"
+            fields:
+              - {label: "Nom du service", name: "title", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Icône (nom Lucide)", name: "icon", widget: "string"}
+          - label: "Mission, Vision, Valeurs"
+            name: "values"
+            widget: "list"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Emoji", name: "icon", widget: "string"}
+
+  - name: "projects"
+    label: "Section Réalisations"
+    files:
+      - file: "src/data/projects.json"
+        label: "Nos Réalisations"
+        name: "projects"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Projets"
+            name: "projectsList"
+            widget: "list"
+            fields:
+              - {label: "Titre du projet", name: "title", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+
+  - name: "partners"
+    label: "Section Partenaires"
+    files:
+      - file: "src/data/partners.json"
+        label: "Nos Partenaires"
+        name: "partners"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Partenaires"
+            name: "partnersList"
+            widget: "list"
+            fields:
+              - {label: "Nom", name: "name", widget: "string"}
+              - {label: "Logo", name: "image", widget: "image"}
+
+  - name: "contact"
+    label: "Section Contact"
+    files:
+      - file: "src/data/contact.json"
+        label: "Informations de Contact"
+        name: "contact"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Téléphone", name: "phone", widget: "string"}
+          - {label: "Mobile", name: "mobile", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+
+  - name: "footer"
+    label: "Pied de page"
+    files:
+      - file: "src/data/footer.json"
+        label: "Contenu du Footer"
+        name: "footer"
+        fields:
+          - {label: "Description de l'entreprise", name: "description", widget: "text"}
+          - {label: "Copyright", name: "copyright", widget: "string"}

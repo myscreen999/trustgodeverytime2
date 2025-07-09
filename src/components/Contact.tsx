@@ -1,5 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Smartphone, MessageCircle, Mail, MapPin, Send } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+
+interface ContactData {
+  title: string;
+  description: string;
+  phone: string;
+  mobile: string;
+  whatsapp: string;
+  email: string;
+}
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +21,7 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const contactData = useContent<ContactData>('/src/data/contact.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,24 +59,31 @@ const Contact: React.FC = () => {
     }, 1000);
   };
 
+  // Fallback data
+  const title = contactData?.title || 'Contactez-nous';
+  const description = contactData?.description || 'Nous sommes disponibles pour discuter de vos projets...';
+  const phone = contactData?.phone || '+222 25901252';
+  const mobile = contactData?.mobile || '+222 28880729';
+  const whatsapp = contactData?.whatsapp || '+222 666 39 63 36';
+
   const contactInfo = [
     {
       icon: Phone,
       title: 'Téléphone',
-      value: '+222 25901252',
-      href: 'tel:+22225901252'
+      value: phone,
+      href: `tel:${phone.replace(/\s/g, '')}`
     },
     {
       icon: Smartphone,
       title: 'Mobile',
-      value: '+222 28880729',
-      href: 'tel:+22228880729'
+      value: mobile,
+      href: `tel:${mobile.replace(/\s/g, '')}`
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      value: '+222 666 39 63 36',
-      href: 'https://wa.me/22266639363'
+      value: whatsapp,
+      href: `https://wa.me/${whatsapp.replace(/\s/g, '').replace('+', '')}`
     }
   ];
 
@@ -80,10 +98,10 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-slideUp">
-            Contactez-nous
+            {title}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn">
-            Nous sommes disponibles pour discuter de vos projets, répondre à vos questions ou organiser une rencontre. N'hésitez pas à nous contacter à tout moment – notre équipe est à votre disposition.
+            {description}
           </p>
         </div>
 

@@ -1,0 +1,58 @@
+{
+  "title": "Nos Services",
+  "description": "Nos services couvrent l'ensemble du cycle de vie des projets de construction et d'infrastructure. Grâce à une équipe expérimentée et des outils de pointe, nous offrons des solutions adaptées à chaque contexte local, en respectant les délais, les budgets et les normes les plus exigeantes.",
+  "servicesList": [
+    {
+      "title": "Construction de bâtiments",
+      "image": "https://i.postimg.cc/QCPvsGXq/c981b834-9f70-42e7-89a1-b3782ac32dd0.jpg",
+      "icon": "Building"
+    },
+    {
+      "title": "Terrassement et voirie",
+      "image": "https://i.postimg.cc/Rh3bgscJ/05cc3b44-ddaf-4ce0-8807-13ba8aec1c0d.jpg",
+      "icon": "Truck"
+    },
+    {
+      "title": "Aménagements agricoles",
+      "image": "https://i.postimg.cc/0y1HCCrr/6f1f99f5-afd3-4dfc-ac3f-1f5020092a4d.jpg",
+      "icon": "Wrench"
+    },
+    {
+      "title": "Adduction d'eau potable",
+      "image": "https://i.postimg.cc/QCPvsGXq/c981b834-9f70-42e7-89a1-b3782ac32dd0.jpg",
+      "icon": "Droplets"
+    },
+    {
+      "title": "Logistique et transport",
+      "image": "https://i.postimg.cc/Rh3bgscJ/05cc3b44-ddaf-4ce0-8807-13ba8aec1c0d.jpg",
+      "icon": "Package"
+    },
+    {
+      "title": "Location de camions et engins lourds",
+      "image": "https://i.postimg.cc/0y1HCCrr/6f1f99f5-afd3-4dfc-ac3f-1f5020092a4d.jpg",
+      "icon": "Car"
+    },
+    {
+      "title": "Autres services",
+      "image": "https://i.postimg.cc/QCPvsGXq/c981b834-9f70-42e7-89a1-b3782ac32dd0.jpg",
+      "icon": "Plus"
+    }
+  ],
+  "values": [
+    {
+      "title": "Mission",
+      "description": "Fournir des solutions fiables et innovantes qui répondent aux besoins croissants des infrastructures africaines.",
+      "icon": "🎯"
+    },
+    {
+      "title": "Vision",
+      "description": "Devenir un leader incontesté du BTP en Afrique en alliant excellence technique et approche durable.",
+      "icon": "👁️"
+    },
+    {
+      "title": "Valeurs",
+      "description": "Professionnalisme – Intégrité – Sécurité – Innovation – Impact social",
+      "icon": "💎"
+    }
+  ]
+}

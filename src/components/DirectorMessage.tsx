@@ -1,9 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Quote } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+
+interface DirectorData {
+  title: string;
+  image: string;
+  quote: string;
+  message: string;
+}
 
 const DirectorMessage: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const directorData = useContent<DirectorData>('/src/data/director.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,6 +31,12 @@ const DirectorMessage: React.FC = () => {
     return () => observer.disconnect();
   }, [sectionVisible]);
 
+  // Fallback data
+  const title = directorData?.title || 'Le mot du directeur';
+  const image = directorData?.image || 'https://i.postimg.cc/HLwm2xp1/9d4f801b-36c6-452a-88f9-8a2d86c94d3c.jpg';
+  const quote = directorData?.quote || 'Dans un monde en constante mutation...';
+  const message = directorData?.message || 'Dans un monde en constante mutation...';
+
   return (
     <section 
       id="directeur" 
@@ -33,15 +48,15 @@ const DirectorMessage: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-slideUp">
-            Le mot du directeur
+            {title}
           </h2>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slideLeft">
               <div className="relative group">
                 <img 
-                  src="https://i.postimg.cc/HLwm2xp1/9d4f801b-36c6-452a-88f9-8a2d86c94d3c.jpg" 
-                  alt="Directeur ON AFRICA TP" 
+                  src={image} 
+                  alt={title} 
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-2xl"></div>
@@ -52,13 +67,13 @@ const DirectorMessage: React.FC = () => {
               <div className="relative">
                 <Quote className="w-12 h-12 text-blue-600 mb-4" />
                 <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed italic">
-                  "Dans un monde en constante mutation, il est essentiel de disposer d'une vision claire et partagée. Chez ON AFRICA TP, nous croyons en une Afrique ambitieuse, autonome et prospère. Chaque projet que nous menons est une pierre apportée à cet édifice commun."
+                  "{quote}"
                 </blockquote>
               </div>
               
               <div className="mt-8">
                 <p className="text-gray-600 leading-relaxed">
-                  Dans un monde en constante mutation, il est essentiel de disposer d'une vision claire et partagée. Chez ON AFRICA TP, nous croyons en une Afrique ambitieuse, autonome et prospère. Chaque projet que nous menons est une pierre apportée à cet édifice commun.
+                  {message}
                 </p>
               </div>
             </div>

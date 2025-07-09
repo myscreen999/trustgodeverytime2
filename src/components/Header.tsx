@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+
+interface SiteData {
+  title: string;
+  description: string;
+  logo: string;
+}
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const siteData = useContent<SiteData>('/src/data/site.json');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +40,8 @@ const Header: React.FC = () => {
     { id: 'contact', label: 'Contact' }
   ];
 
+  const logo = siteData?.logo || 'https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png';
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
@@ -40,7 +50,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="logo transform hover:scale-105 transition-transform duration-300">
             <img 
-              src="https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png" 
+              src={logo} 
               alt="ON AFRICA TP" 
               className="h-12 w-auto"
             />

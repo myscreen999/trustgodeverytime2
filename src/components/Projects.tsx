@@ -1,10 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+
+interface ProjectsData {
+  title: string;
+  description: string;
+  projectsList: Array<{
+    title: string;
+    image: string;
+  }>;
+}
 
 const Projects: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const projectsData = useContent<ProjectsData>('/src/data/projects.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,23 +34,25 @@ const Projects: React.FC = () => {
     return () => observer.disconnect();
   }, [sectionVisible]);
 
-  const projects = [
+  // Fallback data
+  const defaultProjects = [
     {
-      id: 1,
-      image: 'https://i.postimg.cc/Y25wJYhB/62fc8b03-29dc-443c-be5f-1170b94fc960.jpg',
       title: 'Projet de construction moderne'
+      image: 'https://i.postimg.cc/Y25wJYhB/62fc8b03-29dc-443c-be5f-1170b94fc960.jpg',
     },
     {
-      id: 2,
-      image: 'https://i.postimg.cc/5yvDxK6d/deba58d9-da5f-4f0f-87c2-448db6d3ecee.jpg',
       title: 'Infrastructure routière'
+      image: 'https://i.postimg.cc/5yvDxK6d/deba58d9-da5f-4f0f-87c2-448db6d3ecee.jpg',
     },
     {
-      id: 3,
-      image: 'https://i.postimg.cc/7hgQvCWq/5937acb7-17a5-4904-90fb-2c96f91192db.jpg',
       title: 'Développement urbain'
+      image: 'https://i.postimg.cc/7hgQvCWq/5937acb7-17a5-4904-90fb-2c96f91192db.jpg',
     }
   ];
+
+  const title = projectsData?.title || 'Nos Réalisations';
+  const description = projectsData?.description || 'Notre portfolio comprend des chantiers emblématiques...';
+  const projects = projectsData?.projectsList || defaultProjects;
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -68,10 +81,10 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-slideUp">
-            Nos Réalisations
+            {title}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn">
-            Notre portfolio comprend des chantiers emblématiques qui illustrent notre savoir-faire : routes, bâtiments administratifs, installations hydrauliques et bien plus encore. Chaque projet est une preuve concrète de notre capacité à livrer des infrastructures durables, esthétiques et fonctionnelles.
+            {description}
           </p>
         </div>
 
@@ -79,7 +92,7 @@ const Projects: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
-              key={project.id}
+              key={index}
               className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-500 hover:shadow-2xl animate-slideUp"
               style={{ animationDelay: `${index * 0.2}s` }}
               onClick={() => openLightbox(index)}
