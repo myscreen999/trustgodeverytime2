@@ -1,0 +1,359 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* 3D Tilt Animations for Sections */
+@keyframes tilt3DHero {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-5deg) translateZ(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1);
+  }
+}
+
+@keyframes tilt3DPresentation {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(-10deg) rotateY(8deg) translateZ(-40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1);
+  }
+}
+
+@keyframes tilt3DDirector {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(12deg) rotateY(-10deg) translateZ(-60px) skewX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) skewX(0deg);
+  }
+}
+
+@keyframes tilt3DServices {
+  from {
+    opacity: 0;
+    transform: perspective(1100px) rotateX(-8deg) rotateY(12deg) translateZ(-45px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1100px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1);
+  }
+}
+
+@keyframes tilt3DProjects {
+  from {
+    opacity: 0;
+    transform: perspective(1300px) rotateX(18deg) rotateY(-6deg) translateZ(-70px) skewY(1deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1300px) rotateX(0deg) rotateY(0deg) translateZ(0px) skewY(0deg);
+  }
+}
+
+@keyframes tilt3DPartners {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-15deg) rotateY(10deg) translateZ(-55px) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1);
+  }
+}
+
+@keyframes tilt3DContact {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(10deg) rotateY(-12deg) translateZ(-65px) skewX(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px) skewX(0deg);
+  }
+}
+
+/* 3D Tilt Animation Classes */
+.animate-tilt3d-hero {
+  animation: tilt3DHero 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-presentation {
+  animation: tilt3DPresentation 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-director {
+  animation: tilt3DDirector 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-services {
+  animation: tilt3DServices 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-projects {
+  animation: tilt3DProjects 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-partners {
+  animation: tilt3DPartners 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-tilt3d-contact {
+  animation: tilt3DContact 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Initial state for 3D sections */
+.section-3d-initial {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(15deg) rotateY(-5deg) translateZ(-50px) scale(0.95);
+}
+
+/* Apply animations */
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.8s ease-out forwards;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-rotateIn {
+  animation: rotateIn 0.7s ease-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* 3D hover effects */
+.hover-3d {
+  transition: transform 0.3s ease;
+}
+
+.hover-3d:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(5deg);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button hover effects */
+.btn-3d {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-3d:hover::before {
+  left: 100%;
+}
+
+/* Card hover effects */
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Loading animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+/* Image hover effects */
+.img-hover {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.img-hover:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Pulse animation */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Bounce animation */
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
