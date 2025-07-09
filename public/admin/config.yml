@@ -9,23 +9,23 @@ site_url: https://onafricatp.com
 display_url: https://onafricatp.com
 logo_url: https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png
 
-# Enable media library
+# Enable media library for image uploads
 media_library:
   name: uploadcare
   config:
     publicKey: demopublickey
 
 collections:
-  - name: "settings"
+  - name: "site"
     label: "Paramètres du site"
     files:
       - file: "src/data/site.json"
         label: "Informations générales"
         name: "site"
         fields:
-          - {label: "Nom du site", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Logo", name: "logo", widget: "image", default: "https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png"}
+          - {label: "Nom du site", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - {label: "Logo", name: "logo", widget: "image", required: true}
 
   - name: "hero"
     label: "Section Accueil"
@@ -34,18 +34,20 @@ collections:
         label: "Contenu Accueil"
         name: "hero"
         fields:
-          - {label: "Image de fond", name: "backgroundImage", widget: "image"}
-          - {label: "Titre principal", name: "title", widget: "string"}
-          - {label: "Sous-titre coloré", name: "subtitle", widget: "string"}
-          - {label: "Texte du bouton", name: "buttonText", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Image de fond", name: "backgroundImage", widget: "image", required: true}
+          - {label: "Titre principal", name: "title", widget: "string", required: true}
+          - {label: "Sous-titre coloré", name: "subtitle", widget: "string", required: true}
+          - {label: "Texte du bouton", name: "buttonText", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
           - label: "Statistiques"
             name: "stats"
             widget: "list"
+            allow_add: false
+            collapsed: false
             fields:
-              - {label: "Nombre", name: "number", widget: "number"}
-              - {label: "Suffixe", name: "suffix", widget: "string"}
-              - {label: "Libellé", name: "label", widget: "string"}
+              - {label: "Nombre", name: "number", widget: "number", required: true}
+              - {label: "Suffixe", name: "suffix", widget: "string", required: true}
+              - {label: "Libellé", name: "label", widget: "string", required: true}
 
   - name: "presentation"
     label: "Section Présentation"
@@ -54,10 +56,10 @@ collections:
         label: "Contenu Présentation"
         name: "presentation"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Sous-titre", name: "subtitle", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Sous-titre", name: "subtitle", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - {label: "Image", name: "image", widget: "image", required: true}
 
   - name: "director"
     label: "Section Directeur"
@@ -66,10 +68,10 @@ collections:
         label: "Message du Directeur"
         name: "director"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Photo du directeur", name: "image", widget: "image"}
-          - {label: "Citation", name: "quote", widget: "text"}
-          - {label: "Message complet", name: "message", widget: "text"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Photo du directeur", name: "image", widget: "image", required: true}
+          - {label: "Citation", name: "quote", widget: "text", required: true}
+          - {label: "Message complet", name: "message", widget: "text", required: true}
 
   - name: "services"
     label: "Section Services"
@@ -78,22 +80,26 @@ collections:
         label: "Nos Services"
         name: "services"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
           - label: "Liste des services"
             name: "servicesList"
             widget: "list"
+            allow_add: false
+            collapsed: false
             fields:
-              - {label: "Nom du service", name: "title", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-              - {label: "Icône (nom Lucide)", name: "icon", widget: "string"}
+              - {label: "Nom du service", name: "title", widget: "string", required: true}
+              - {label: "Image", name: "image", widget: "image", required: true}
+              - {label: "Icône (nom Lucide)", name: "icon", widget: "string", required: true, hint: "Utilisez les noms d'icônes Lucide comme: Building, Truck, Wrench, Droplets, Package, Car, Plus"}
           - label: "Mission, Vision, Valeurs"
             name: "values"
             widget: "list"
+            allow_add: false
+            collapsed: false
             fields:
-              - {label: "Titre", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Emoji", name: "icon", widget: "string"}
+              - {label: "Titre", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Emoji", name: "icon", widget: "string", required: true, hint: "Utilisez un emoji comme: 🎯, 👁️, 💎"}
 
   - name: "projects"
     label: "Section Réalisations"
@@ -102,14 +108,16 @@ collections:
         label: "Nos Réalisations"
         name: "projects"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
           - label: "Projets"
             name: "projectsList"
             widget: "list"
+            allow_add: false
+            collapsed: false
             fields:
-              - {label: "Titre du projet", name: "title", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Titre du projet", name: "title", widget: "string", required: true}
+              - {label: "Image", name: "image", widget: "image", required: true}
 
   - name: "partners"
     label: "Section Partenaires"
@@ -118,14 +126,16 @@ collections:
         label: "Nos Partenaires"
         name: "partners"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
           - label: "Partenaires"
             name: "partnersList"
             widget: "list"
+            allow_add: false
+            collapsed: false
             fields:
-              - {label: "Nom", name: "name", widget: "string"}
-              - {label: "Logo", name: "image", widget: "image"}
+              - {label: "Nom", name: "name", widget: "string", required: true}
+              - {label: "Logo", name: "image", widget: "image", required: true}
 
   - name: "contact"
     label: "Section Contact"
@@ -134,12 +144,12 @@ collections:
         label: "Informations de Contact"
         name: "contact"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Téléphone", name: "phone", widget: "string"}
-          - {label: "Mobile", name: "mobile", widget: "string"}
-          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - {label: "Téléphone", name: "phone", widget: "string", required: true}
+          - {label: "Mobile", name: "mobile", widget: "string", required: true}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string", required: true}
+          - {label: "Email", name: "email", widget: "string", required: true}
 
   - name: "footer"
     label: "Pied de page"
@@ -148,5 +158,5 @@ collections:
         label: "Contenu du Footer"
         name: "footer"
         fields:
-          - {label: "Description de l'entreprise", name: "description", widget: "text"}
-          - {label: "Copyright", name: "copyright", widget: "string"}
+          - {label: "Description de l'entreprise", name: "description", widget: "text", required: true}
+          - {label: "Copyright", name: "copyright", widget: "string", required: true}
