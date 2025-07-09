@@ -45,7 +45,7 @@ const Projects: React.FC = () => {
       image: 'https://i.postimg.cc/5yvDxK6d/deba58d9-da5f-4f0f-87c2-448db6d3ecee.jpg',
     },
     {
-      title: 'Développement urbain'
+      title: 'Développement urbain',
       image: 'https://i.postimg.cc/7hgQvCWq/5937acb7-17a5-4904-90fb-2c96f91192db.jpg',
     }
   ];
