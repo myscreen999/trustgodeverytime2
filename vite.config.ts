@@ -22,7 +22,9 @@ export default defineConfig({
           icons: ['lucide-react']
         }
       }
-    }
+    },
+    // Copy data files to dist for runtime access
+    copyPublicDir: true
   },
   server: {
     port: 5173,
@@ -31,5 +33,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  // Ensure data files are accessible
+  assetsInclude: ['**/*.json']
 });

@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run build && cp -r src/data dist/src/"
   
 [build.processing]
   skip_processing = false
@@ -33,6 +33,11 @@
 [[redirects]]
   from = "/password-setup"
   to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/src/data/*"
+  to = "/src/data/:splat"
   status = 200
 
 [[redirects]]
