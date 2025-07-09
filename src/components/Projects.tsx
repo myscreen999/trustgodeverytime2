@@ -37,11 +37,11 @@ const Projects: React.FC = () => {
   // Fallback data
   const defaultProjects = [
     {
-      title: 'Projet de construction moderne'
+      title: 'Projet de construction moderne',
       image: 'https://i.postimg.cc/Y25wJYhB/62fc8b03-29dc-443c-be5f-1170b94fc960.jpg',
     },
     {
-      title: 'Infrastructure routière'
+      title: 'Infrastructure routière',
       image: 'https://i.postimg.cc/5yvDxK6d/deba58d9-da5f-4f0f-87c2-448db6d3ecee.jpg',
     },
     {
