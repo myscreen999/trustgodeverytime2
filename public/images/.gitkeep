@@ -1,0 +1,2 @@
+# This file ensures the images directory is included in git
+# Media files uploaded through Netlify CMS will be stored here

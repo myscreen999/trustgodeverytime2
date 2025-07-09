@@ -1,14 +1,19 @@
 backend:
   name: git-gateway
   branch: main
-  repo: your-username/your-repo-name
 
-publish_mode: editorial_workflow
+publish_mode: simple
 media_folder: public/images
 public_folder: /images
 site_url: https://onafricatp.com
 display_url: https://onafricatp.com
 logo_url: https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png
+
+# Enable media library
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey
 
 collections:
   - name: "settings"
@@ -20,7 +25,7 @@ collections:
         fields:
           - {label: "Nom du site", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
-          - {label: "Logo", name: "logo", widget: "image"}
+          - {label: "Logo", name: "logo", widget: "image", default: "https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png"}
 
   - name: "hero"
     label: "Section Accueil"
