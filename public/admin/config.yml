@@ -149,12 +149,12 @@ collections:
         label: "Informations de Contact"
         name: "contact"
         fields:
-          - {label: "Titre", name: "title", widget: "string", required: true}
-          - {label: "Description", name: "description", widget: "text", required: true}
-          - {label: "Téléphone", name: "phone", widget: "string", required: true}
-          - {label: "Mobile", name: "mobile", widget: "string", required: true}
-          - {label: "WhatsApp", name: "whatsapp", widget: "string", required: true}
-          - {label: "Email", name: "email", widget: "string", required: true}
+          - {label: "Titre de la section", name: "title", widget: "string", required: true, default: "Contactez-nous"}
+          - {label: "Description de la section", name: "description", widget: "text", required: true}
+          - {label: "Numéro de téléphone fixe", name: "phone", widget: "string", required: true, hint: "Format: +222 25901252"}
+          - {label: "Numéro de mobile", name: "mobile", widget: "string", required: true, hint: "Format: +222 28880729"}
+          - {label: "Numéro WhatsApp", name: "whatsapp", widget: "string", required: true, hint: "Format: +222 666 39 63 36"}
+          - {label: "Adresse email", name: "email", widget: "string", required: true, hint: "Format: contact@onafricatp.com"}
 
   - name: "footer"
     label: "Pied de page"
