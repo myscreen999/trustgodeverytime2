@@ -63,63 +63,66 @@ collections:
           - {label: "Image", name: "image", widget: "image", required: true}
 
   - name: "director"
-    label: "Section Directeur"
+    label: "Le mot du directeur"
     files:
       - file: "src/data/director.json"
         label: "Message du Directeur"
         name: "director"
         fields:
-          - {label: "Titre", name: "title", widget: "string", required: true}
+          - {label: "Titre de la section", name: "title", widget: "string", required: true, default: "Le mot du directeur"}
           - {label: "Photo du directeur", name: "image", widget: "image", required: true}
-          - {label: "Citation", name: "quote", widget: "text", required: true}
-          - {label: "Message complet", name: "message", widget: "text", required: true}
+          - {label: "Citation principale", name: "quote", widget: "text", required: true}
+          - {label: "Message complet du directeur", name: "message", widget: "text", required: true}
 
   - name: "services"
-    label: "Section Services"
+    label: "Nos services"
     files:
       - file: "src/data/services.json"
-        label: "Nos Services"
+        label: "Services et Valeurs"
         name: "services"
         fields:
-          - {label: "Titre", name: "title", widget: "string", required: true}
-          - {label: "Description", name: "description", widget: "text", required: true}
+          - {label: "Titre de la section", name: "title", widget: "string", required: true, default: "Nos Services"}
+          - {label: "Description de la section", name: "description", widget: "text", required: true}
           - label: "Liste des services"
             name: "servicesList"
             widget: "list"
             min: 7
             max: 7
             collapsed: false
+            summary: "{{fields.title}}"
             fields:
               - {label: "Nom du service", name: "title", widget: "string", required: true}
-              - {label: "Image", name: "image", widget: "image", required: true}
-              - {label: "Icône (nom Lucide)", name: "icon", widget: "string", required: true, hint: "Utilisez les noms d'icônes Lucide comme: Building, Truck, Wrench, Droplets, Package, Car, Plus"}
+              - {label: "Image du service", name: "image", widget: "image", required: true}
+              - {label: "Icône Lucide", name: "icon", widget: "string", required: true, hint: "Noms d'icônes: Building, Truck, Wrench, Droplets, Package, Car, Plus"}
           - label: "Mission, Vision, Valeurs"
             name: "values"
             widget: "list"
             min: 3
             max: 3
             collapsed: false
+            summary: "{{fields.title}}"
             fields:
-              - {label: "Titre", name: "title", widget: "string", required: true}
+              - {label: "Titre (Mission/Vision/Valeurs)", name: "title", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Emoji", name: "icon", widget: "string", required: true, hint: "Utilisez un emoji comme: 🎯, 👁️, 💎"}
+              - {label: "Emoji", name: "icon", widget: "string", required: true, hint: "Exemples: 🎯, 👁️, 💎"}
 
   - name: "projects"
-    label: "Section Réalisations"
+    label: "Nos réalisations"
     files:
       - file: "src/data/projects.json"
-        label: "Nos Réalisations"
+        label: "Portfolio de Réalisations"
         name: "projects"
         fields:
-          - {label: "Titre", name: "title", widget: "string", required: true}
-          - {label: "Description", name: "description", widget: "text", required: true}
-          - label: "Projets"
+          - {label: "Titre de la section", name: "title", widget: "string", required: true, default: "Nos Réalisations"}
+          - {label: "Description de la section", name: "description", widget: "text", required: true}
+          - label: "Liste des projets"
             name: "projectsList"
             widget: "list"
             collapsed: false
+            summary: "{{fields.title}}"
             fields:
               - {label: "Titre du projet", name: "title", widget: "string", required: true}
-              - {label: "Image", name: "image", widget: "image", required: true}
+              - {label: "Image du projet", name: "image", widget: "image", required: true}
 
   - name: "partners"
     label: "Section Partenaires"
@@ -134,6 +137,7 @@ collections:
             name: "partnersList"
             widget: "list"
             collapsed: false
+            summary: "{{fields.name}}"
             fields:
               - {label: "Nom du partenaire", name: "name", widget: "string", required: true}
               - {label: "Logo du partenaire", name: "image", widget: "image", required: true}
