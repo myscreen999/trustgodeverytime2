@@ -3,17 +3,12 @@ backend:
   branch: main
 
 publish_mode: simple
-media_folder: public/images
-public_folder: /images
+media_folder: "public/images"
+public_folder: "/images"
 site_url: https://onafricatp.com
 display_url: https://onafricatp.com
 logo_url: https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png
 
-# Enable media library for image uploads
-media_library:
-  name: uploadcare
-  config:
-    publicKey: demopublickey
 
 collections:
   - name: "site"

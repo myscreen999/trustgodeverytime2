@@ -23,8 +23,21 @@ export default defineConfig({
         }
       }
     },
-    // Copy data files to dist for runtime access
-    copyPublicDir: true
+    copyPublicDir: true,
+    // Ensure images directory is copied
+    rollupOptions: {
+      ...this.rollupOptions,
+      external: [],
+      output: {
+        ...this.rollupOptions?.output,
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.includes('images/')) {
+            return 'images/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    }
   },
   server: {
     port: 5173,

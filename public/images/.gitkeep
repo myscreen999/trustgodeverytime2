@@ -1,2 +1,3 @@
 # This file ensures the images directory is included in git
 # Media files uploaded through Netlify CMS will be stored here
+# Images will be accessible at /images/ on the live site
