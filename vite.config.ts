@@ -49,7 +49,6 @@ export default defineConfig({
     force: true
   },
   publicDir: 'public',
-  // Ensure data files are accessible
   assetsInclude: ['**/*.json'],
   esbuild: {
     target: 'es2020'
