@@ -6,6 +6,9 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  define: {
+    global: 'globalThis',
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -34,12 +37,21 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    host: true
+    host: true,
+    strictPort: false,
+    hmr: {
+      overlay: false
+    }
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: [],
+    force: true
   },
   publicDir: 'public',
   // Ensure data files are accessible
-  assetsInclude: ['**/*.json']
+  assetsInclude: ['**/*.json'],
+  esbuild: {
+    target: 'es2020'
+  }
 });
