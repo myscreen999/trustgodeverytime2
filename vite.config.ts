@@ -15,21 +15,13 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         admin: resolve(__dirname, 'public/admin/index.html')
       },
+      external: [],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
           icons: ['lucide-react']
-        }
-      }
-    },
-    copyPublicDir: true,
-    // Ensure images directory is copied
-    rollupOptions: {
-      ...this.rollupOptions,
-      external: [],
-      output: {
-        ...this.rollupOptions?.output,
+        },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && assetInfo.name.includes('images/')) {
             return 'images/[name][extname]';
@@ -37,7 +29,8 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]';
         }
       }
-    }
+    },
+    copyPublicDir: true
   },
   server: {
     port: 5173,
