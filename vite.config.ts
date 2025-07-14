@@ -26,14 +26,15 @@ export default defineConfig({
           icons: ['lucide-react']
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.includes('images/')) {
+          if (assetInfo.name && (assetInfo.name.includes('images/') || assetInfo.name.match(/\.(png|jpe?g|gif|svg|webp)$/i))) {
             return 'images/[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
         }
       }
     },
-    copyPublicDir: true
+    copyPublicDir: true,
+    emptyOutDir: true
   },
   server: {
     port: 5173,
