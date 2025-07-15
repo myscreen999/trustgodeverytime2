@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true"
+  command = "npm run build && mkdir -p dist/images && cp -r public/images/* dist/images/ && cp -r src/data dist/src/data"
   
 [build.processing]
   skip_processing = false
