@@ -39,8 +39,7 @@ export default defineConfig({
       }
     }
   },
-  emptyOutDir: true
-  },
+  emptyOutDir: true,
   server: {
     port: 5173,
     host: true,
