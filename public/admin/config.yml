@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  squash_merges: true
 
 publish_mode: simple
 media_folder: "public/images"
@@ -8,6 +9,13 @@ public_folder: "/images"
 site_url: https://onafricatp.com
 display_url: https://onafricatp.com
 logo_url: https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png
+
+# Ensure immediate publishing
+local_backend: false
+show_preview_links: true
+slug:
+  encoding: "ascii"
+  clean_accents: true</action>
 
 
 collections:
