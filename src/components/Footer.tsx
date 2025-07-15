@@ -18,9 +18,9 @@ interface ContactData {
 }
 
 const Footer: React.FC = () => {
-  const footerData = useContent<FooterData>('/src/data/footer.json');
-  const siteData = useContent<SiteData>('/src/data/site.json');
-  const contactData = useContent<ContactData>('/src/data/contact.json');
+  const footerData = useContent<FooterData>('footer.json');
+  const siteData = useContent<SiteData>('site.json');
+  const contactData = useContent<ContactData>('contact.json');
 
   // Fallback data
   const logo = siteData?.logo || 'https://i.postimg.cc/x8zq9Qvf/2025-06-29-T075316-796.png';

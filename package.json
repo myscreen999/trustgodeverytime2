@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "mkdir -p dist/data && cp -r src/data/*.json dist/data/"
+    "postbuild": "mkdir -p dist/data && cp src/data/*.json dist/data/ 2>/dev/null || true"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

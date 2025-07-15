@@ -20,7 +20,7 @@ interface ServicesData {
 const Services: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const servicesData = useContent<ServicesData>('/src/data/services.json');
+  const servicesData = useContent<ServicesData>('services.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

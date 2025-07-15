@@ -11,7 +11,7 @@ interface PresentationData {
 const Presentation: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const presentationData = useContent<PresentationData>('/src/data/presentation.json');
+  const presentationData = useContent<PresentationData>('presentation.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

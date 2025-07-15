@@ -13,7 +13,7 @@ interface PartnersData {
 const Partners: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const partnersData = useContent<PartnersData>('/src/data/partners.json');
+  const partnersData = useContent<PartnersData>('partners.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

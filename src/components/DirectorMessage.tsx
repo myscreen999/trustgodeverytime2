@@ -12,7 +12,7 @@ interface DirectorData {
 const DirectorMessage: React.FC = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const directorData = useContent<DirectorData>('/src/data/director.json');
+  const directorData = useContent<DirectorData>('director.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

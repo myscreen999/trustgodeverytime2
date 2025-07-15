@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useContent = <T>(dataPath: string): T | null => {
+export const useContent = <T>(filename: string): T | null => {
   const [content, setContent] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -8,16 +8,15 @@ export const useContent = <T>(dataPath: string): T | null => {
     const loadContent = async () => {
       try {
         setLoading(true);
-        // Clean path and add cache busting
-        let cleanPath = dataPath.startsWith('/') ? dataPath.slice(1) : dataPath;
+        
+        // Add cache busting timestamp
         const timestamp = Date.now();
         
         // Try multiple paths to ensure we find the data
         const paths = [
-          `/data/${cleanPath.split('/').pop()}?v=${timestamp}`,
-          `/${cleanPath}?v=${timestamp}`,
-          `/src/data/${cleanPath.split('/').pop()}?v=${timestamp}`,
-          `/${cleanPath.replace('src/data/', '')}?v=${timestamp}`
+          `/data/${filename}?v=${timestamp}`,
+          `/src/data/${filename}?v=${timestamp}`,
+          `/${filename}?v=${timestamp}`
         ];
         
         let data = null;
@@ -33,20 +32,20 @@ export const useContent = <T>(dataPath: string): T | null => {
           }
         }
         
-        if (response.ok) {
+        if (data) {
           setContent(data);
         } else {
-          console.warn(`Could not load ${dataPath}, using default content`);
+          console.warn(`Could not load ${filename}, using default content`);
         }
       } catch (error) {
-        console.warn(`Error loading ${dataPath}:`, error);
+        console.warn(`Error loading ${filename}:`, error);
       } finally {
         setLoading(false);
       }
     };
 
     loadContent();
-  }, [dataPath]);
+  }, [filename]);
 
   return content;
 };

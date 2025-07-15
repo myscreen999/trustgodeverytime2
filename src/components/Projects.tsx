@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const projectsData = useContent<ProjectsData>('/src/data/projects.json');
+  const projectsData = useContent<ProjectsData>('projects.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

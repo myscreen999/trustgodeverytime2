@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const contactData = useContent<ContactData>('/src/data/contact.json');
+  const contactData = useContent<ContactData>('contact.json');
 
   useEffect(() => {
     const observer = new IntersectionObserver(

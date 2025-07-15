@@ -11,7 +11,7 @@ interface SiteData {
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const siteData = useContent<SiteData>('/src/data/site.json');
+  const siteData = useContent<SiteData>('site.json');
 
   useEffect(() => {
     const handleScroll = () => {

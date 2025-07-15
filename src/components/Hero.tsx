@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   const [statsVisible, setStatsVisible] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const heroData = useContent<HeroData>('/src/data/hero.json');
+  const heroData = useContent<HeroData>('hero.json');
 
   useEffect(() => {
     const timer = setTimeout(() => setStatsVisible(true), 1000);
