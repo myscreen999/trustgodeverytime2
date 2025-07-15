@@ -37,6 +37,7 @@ export default defineConfig({
           icons: ['lucide-react']
         }
       }
+    }
     emptyOutDir: true
   },
   server: {
