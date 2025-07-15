@@ -8,22 +8,34 @@ export const useContent = <T>(dataPath: string): T | null => {
     const loadContent = async () => {
       try {
         setLoading(true);
-        // Remove leading slash and add proper path resolution
-        const cleanPath = dataPath.startsWith('/') ? dataPath.slice(1) : dataPath;
+        // Clean path and add cache busting
+        let cleanPath = dataPath.startsWith('/') ? dataPath.slice(1) : dataPath;
+        const timestamp = Date.now();
         
-        // Try to fetch from the data files
-        const response = await fetch(`/${cleanPath}?t=${Date.now()}`);
+        // Try multiple paths to ensure we find the data
+        const paths = [
+          `/${cleanPath}?v=${timestamp}`,
+          `/src/data/${cleanPath.split('/').pop()}?v=${timestamp}`,
+          `/${cleanPath.replace('src/data/', '')}?v=${timestamp}`
+        ];
+        
+        let data = null;
+        for (const path of paths) {
+          try {
+            const response = await fetch(path);
+            if (response.ok) {
+              data = await response.json();
+              break;
+            }
+          } catch (err) {
+            continue;
+          }
+        }
+        
         if (response.ok) {
-          const data = await response.json();
           setContent(data);
         } else {
-          console.warn(`Could not load ${cleanPath}, using default content`);
-          // Try to load from public folder as fallback
-          const fallbackResponse = await fetch(`/public/${cleanPath}?t=${Date.now()}`);
-          if (fallbackResponse.ok) {
-            const fallbackData = await fallbackResponse.json();
-            setContent(fallbackData);
-          }
+          console.warn(`Could not load ${dataPath}, using default content`);
         }
       } catch (error) {
         console.warn(`Error loading ${dataPath}:`, error);

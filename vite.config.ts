@@ -13,6 +13,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    copyPublicDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -20,20 +21,22 @@ export default defineConfig({
       },
       external: [],
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          icons: ['lucide-react']
-        },
+        // Ensure data files are treated as assets
         assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.includes('.json')) {
+            return 'data/[name][extname]';
+          }
           if (assetInfo.name && (assetInfo.name.includes('images/') || assetInfo.name.match(/\.(png|jpe?g|gif|svg|webp)$/i))) {
             return 'images/[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
+        },
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          icons: ['lucide-react']
         }
       }
-    },
-    copyPublicDir: true,
     emptyOutDir: true
   },
   server: {

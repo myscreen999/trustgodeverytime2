@@ -4,17 +4,17 @@
   "servicesList": [
     {
       "title": "Construction de bâtiments",
-      "image": "https://i.postimg.cc/QCPvsGXq/c981b834-9f70-42e7-89a1-b3782ac32dd0.jpg",
+      "image": "/images/6f1f99f5-afd3-4dfc-ac3f-1f5020092a4d.jpg",
       "icon": "Building"
     },
     {
       "title": "Terrassement et voirie",
-      "image": "https://i.postimg.cc/Rh3bgscJ/05cc3b44-ddaf-4ce0-8807-13ba8aec1c0d.jpg",
+      "image": "/images/5937acb7-17a5-4904-90fb-2c96f91192db.jpg",
       "icon": "Truck"
     },
     {
       "title": "Aménagements agricoles",
-      "image": "https://i.postimg.cc/0y1HCCrr/6f1f99f5-afd3-4dfc-ac3f-1f5020092a4d.jpg",
+      "image": "https://ucarecdn.com/fd35c3ba-bde8-43c8-be5d-4f8c18d85ea0/",
       "icon": "Wrench"
     },
     {
@@ -24,17 +24,17 @@
     },
     {
       "title": "Logistique et transport",
-      "image": "https://i.postimg.cc/Rh3bgscJ/05cc3b44-ddaf-4ce0-8807-13ba8aec1c0d.jpg",
+      "image": "https://i.postimg.cc/TwYy3Y4S/62fc8b03-29dc-443c-be5f-1170b94fc960.jpg",
       "icon": "Package"
     },
     {
       "title": "Location de camions et engins lourds",
-      "image": "https://i.postimg.cc/0y1HCCrr/6f1f99f5-afd3-4dfc-ac3f-1f5020092a4d.jpg",
+      "image": "https://ucarecdn.com/f70266a0-4e76-4be7-bdd3-f674dd8b40cf/",
       "icon": "Car"
     },
     {
       "title": "Autres services",
-      "image": "https://i.postimg.cc/QCPvsGXq/c981b834-9f70-42e7-89a1-b3782ac32dd0.jpg",
+      "image": "https://ucarecdn.com/72c77b9d-db98-41c0-a21c-6e126c2c418b/",
       "icon": "Plus"
     }
   ],
@@ -50,7 +50,7 @@
       "icon": "👁️"
     },
     {
-      "title": "Valeurs",
+      "title": "Nos valeurs",
       "description": "Professionnalisme – Intégrité – Sécurité – Innovation – Impact social",
       "icon": "💎"
     }
