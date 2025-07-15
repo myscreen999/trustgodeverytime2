@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
+  command = "npm run build && mkdir -p dist/data && cp -r src/data/*.json dist/data/ 2>/dev/null || true && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
   
 [build.processing]
   skip_processing = false
@@ -26,10 +26,10 @@
 
 # Enable Git Gateway for CMS
 [context.production]
-  command = "npm run build && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
+  command = "npm run build && mkdir -p dist/data && cp -r src/data/*.json dist/data/ 2>/dev/null || true && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
 
 [context.deploy-preview]
-  command = "npm run build && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
+  command = "npm run build && mkdir -p dist/data && cp -r src/data/*.json dist/data/ 2>/dev/null || true && mkdir -p dist/src/data && cp -r src/data/* dist/src/data/ 2>/dev/null || true && mkdir -p dist/images && cp -r public/images/* dist/images/ 2>/dev/null || true && mkdir -p dist/admin && cp public/admin/* dist/admin/ 2>/dev/null || true"
 
 [[redirects]]
   from = "/admin/*"

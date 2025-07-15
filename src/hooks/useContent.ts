@@ -14,6 +14,7 @@ export const useContent = <T>(dataPath: string): T | null => {
         
         // Try multiple paths to ensure we find the data
         const paths = [
+          `/data/${cleanPath.split('/').pop()}?v=${timestamp}`,
           `/${cleanPath}?v=${timestamp}`,
           `/src/data/${cleanPath.split('/').pop()}?v=${timestamp}`,
           `/${cleanPath.replace('src/data/', '')}?v=${timestamp}`
