@@ -14,6 +14,7 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     copyPublicDir: true,
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -39,7 +40,6 @@ export default defineConfig({
       }
     }
   },
-  emptyOutDir: true,
   server: {
     port: 5173,
     host: true,
